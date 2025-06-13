@@ -1,0 +1,21 @@
+<!-- book_appointment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Appointment</title>
+</head>
+<body>
+  <h2>Book Your Appointment</h2>
+  <p>This is the appointment booking page.</p>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+      // Clear login status
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

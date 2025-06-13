@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Hospital Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #343a40;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: white;
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .content {
+      padding: 20px;
+    }
+    .dashboard-card {
+      border-left: 5px solid #0d6efd;
+      padding: 15px;
+      background: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 sidebar">
+      <h4 class="text-white text-center mb-4">Admin Panel</h4>
+      <a href="#">Dashboard</a>
+      <a href="manage_doctors.html">Manage Doctors</a>
+      <a href="manage_patients.html">Manage Patients</a>
+      <a href="manage_appointments.html">Appointments</a>
+      <a href="admin_feedback.html">Feedback</a>
+      <a href="admin_reports.html">Reports</a>
+      <a href="admin_logout.html" class="text-danger">Logout</a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-10 content">
+      <h2 class="mb-4">Welcome, Admin</h2>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <h5>Total Doctors</h5>
+            <p class="display-6">15</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <h5>Total Patients</h5>
+            <p class="display-6">120</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <h5>Upcoming Appointments</h5>
+            <p class="display-6">30</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <h5>Recent Appointments</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Doctor</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ravi Kumar</td>
+              <td>Dr. Anjali</td>
+              <td>2025-05-24</td>
+              <td><span class="badge bg-success">Confirmed</span></td>
+            </tr>
+            <tr>
+              <td>Meera Joseph</td>
+              <td>Dr. Sunil</td>
+              <td>2025-05-24</td>
+              <td><span class="badge bg-warning">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

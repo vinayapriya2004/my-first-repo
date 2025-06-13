@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - DocNow</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .contact-header {
+      background: linear-gradient(to right, #004080,#003865);
+      color: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .contact-header h1 {
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .contact-section {
+      padding: 60px 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-form .form-control {
+      border-radius: 8px;
+      box-shadow: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-form .form-control:focus {
+      border-color: #003865;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    }
+
+    .contact-info {
+      background: #ffffff;
+      border-left: 5px solid  #003865;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-info i {
+      font-size: 24px;
+      color:  #003865;
+      margin-right: 12px;
+    }
+
+    .map-container {
+      margin-top: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+      
+    footer {
+      background-color: #003865;
+      color: white;
+      padding: 30px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .footer-link a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+    .btn-primary {
+      background-color: #003865;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #003865;
+    }
+    
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      color: #003865 !important;
+    }
+    
+    .top-bar {
+      background-color: #003865;
+      color: #fff;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+   
+   
+  </style>
+</head>
+
+<body>
+      
+<!-- Top Bar -->
+<div class="top-bar text-center">
+  <div class="container d-flex justify-content-between">
+    <div><i class="fas fa-envelope"></i> info@gmail.com | <i class="fas fa-map-marker-alt"></i> C-708, Noida Sector 37</div>
+    <div><strong>Call Now:</strong> 2147483647</div>
+  </div>
+</div>
+  
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-stethoscope"></i> DocNow</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="patient-registration.html">Patient Reg</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="department.html">Department</a></li>
+        <li class="nav-item"><a class="nav-link" href="patient-reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Contact Header -->
+  <div class="contact-header">
+    <h1>Contact Us</h1>
+    <p>We’re here to help. Reach out with any questions or feedback.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-6 mb-4">
+          <form class="contact-form">
+            <h4 class="mb-4">Send Us a Message</h4>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Your Full Name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-4">
+          <div class="contact-info">
+            <h4>Get in Touch</h4>
+            <p><i class="fas fa-map-marker-alt"></i> C-708, Sector 37, Noida, India</p>
+            <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+            <p><i class="fas fa-envelope"></i> contact@docnow.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 8:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-container mt-5">
+        <iframe src="https://maps.google.com/maps?q=noida%20sector%2037&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </section>
+
+
+ <footer class="text-center mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2025 DocNow. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 footer-link">
+          <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

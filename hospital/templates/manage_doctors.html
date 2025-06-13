@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Doctors - Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .form-control, .btn {
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4 text-primary">Manage Doctors</h2>
+
+  <!-- Add Doctor Form -->
+  <div class="card p-4 mb-4">
+    <h5 class="mb-3">Add New Doctor</h5>
+    <form id="doctorForm">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Full Name" id="name" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Specialization" id="specialization" required>
+        </div>
+        <div class="col-md-4">
+          <input type="email" class="form-control" placeholder="Email" id="email" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success mt-3">Add Doctor</button>
+    </form>
+  </div>
+
+  <!-- Doctor List Table -->
+  <div class="card p-4">
+    <h5 class="mb-3">Doctor List</h5>
+    <table class="table table-bordered" id="doctorTable">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic rows go here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Bootstrap & JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const doctorForm = document.getElementById('doctorForm');
+  const doctorTable = document.querySelector('#doctorTable tbody');
+  let doctorCount = 0;
+
+  doctorForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const specialization = document.getElementById('specialization').value;
+    const email = document.getElementById('email').value;
+
+    doctorCount++;
+    const newRow = `
+      <tr>
+        <td>${doctorCount}</td>
+        <td>${name}</td>
+        <td>${specialization}</td>
+        <td>${email}</td>
+        <td><button class="btn btn-sm btn-danger" onclick="removeRow(this)">Delete</button></td>
+      </tr>
+    `;
+    doctorTable.insertAdjacentHTML('beforeend', newRow);
+
+    // Reset form
+    doctorForm.reset();
+  });
+
+  function removeRow(button) {
+    button.closest('tr').remove();
+  }
+</script>
+</body>
+</html>

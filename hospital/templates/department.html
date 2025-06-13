@@ -1,0 +1,457 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Expert Doctors - DocNow</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    .top-bar {
+      background-color: #003865;
+      color: #fff;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      color: #003865 !important;
+    }
+
+    .doctor-card {
+      width: 100%;
+       height: 600px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .doctor-card img {
+       width: 100%;
+       height: 350px;
+       display: block;
+       object-fit: cover;
+       object-position: center;
+       border-bottom: 3px solid #003865;
+    }
+
+
+    .doctor-card-body {
+      padding: 25px;
+    }
+
+    .doctor-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #003865;
+      margin-bottom: 5px;
+    }
+
+    .specialty {
+      color: #4a4a4a;
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .doctor-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .btn-book {
+      background-color: #003865;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-book:hover {
+      background-color: #002645;
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+      padding-bottom: 20px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #003865;
+    }
+    
+    footer {
+  background-color: #003865;
+  color: white;
+}
+
+.footer-link a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.footer-link a:last-child {
+  margin-right: 0;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}
+ footer {
+      background-color: #003865;
+      color: white;
+      padding: 30px 0;
+    }
+
+    .footer-link a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar text-center">
+    <div class="container d-flex justify-content-between">
+      <div><i class="fas fa-envelope"></i> info@docnow.com | <i class="fas fa-map-marker-alt"></i> C-708, Noida Sector 37</div>
+      <div><strong>Emergency:</strong> +91 2147483647</div>
+    </div>
+  </div>
+  
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-stethoscope"></i> DocNow</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home'%}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="patient-registration.html">Patient Reg</a></li> -->
+        <!-- <li class="nav-item"><a class="nav-link" href="department.html">Department</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="patient-reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Doctors Section -->
+  <div class="container py-5">
+    <h2 class="text-center section-title">Meet Our Expert Doctors</h2>
+    <div class="row">
+
+
+  <!-- 1. Cardiology Department -->
+  <h4 class="mb-4 mt-5 text-primary">Cardiology Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image2.jpg' %}" alt="Dr. Arjun Mehta">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Arjun Mehta</div>
+          <div class="specialty">Cardiologist</div>
+          <p class="doctor-info">Heart failure & interventional cardiology expert.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/images8.jpg' %}" alt="Dr. Kavitha Rao">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Kavitha Rao</div>
+          <div class="specialty">Cardiologist</div>
+          <p class="doctor-info">Specialist in congenital and pediatric heart conditions.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image9.jpg' %}" alt="Dr. Mohan Singh">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Mohan Singh</div>
+          <div class="specialty">Cardiologist</div>
+          <p class="doctor-info">Electrophysiology and arrhythmia specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Pediatrics Department -->
+  <h4 class="mb-4 mt-5 text-primary">Pediatrics Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image5.jpg' %}" alt="Dr. Priya Sinha">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Priya Sinha</div>
+          <div class="specialty">Pediatrician</div>
+          <p class="doctor-info">Child development and nutrition expert.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image10.jpg' %}" alt="Dr. Ramesh Iyer">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Ramesh Iyer</div>
+          <div class="specialty">Pediatrician</div>
+          <p class="doctor-info">Focuses on vaccinations and teen health.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image11.jpg' %}" alt="Dr. Shalini Menon">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Shalini Menon</div>
+          <div class="specialty">Pediatrician</div>
+          <p class="doctor-info">Child behavioral health and allergy specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Orthopedics Department -->
+  <h4 class="mb-4 mt-5 text-primary">Orthopedics Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{%static 'images/image3.jpg' %}" alt="Dr. Vikram Rao">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Vikram Rao</div>
+          <div class="specialty">Orthopedic Surgeon</div>
+          <p class="doctor-info">Joint replacement and trauma surgery specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image12.jpg' %}" alt="Dr. Sneha Thomas">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Sneha Thomas</div>
+          <div class="specialty">Orthopedic Surgeon</div>
+          <p class="doctor-info">Spine surgery and bone health expert. </p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image13.jpg' %}" alt="Dr. Anil George">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Anil George</div>
+          <div class="specialty">Orthopedic Surgeon</div>
+          <p class="doctor-info">Sports injury and physiotherapy consultant.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Dermatology Department -->
+  <h4 class="mb-4 mt-5 text-primary">Dermatology Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image7.jpg' %}" alt="Dr. Ananya Gupta">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Ananya Gupta</div>
+          <div class="specialty">Dermatologist</div>
+          <p class="doctor-info">Anti-aging and skin rejuvenation specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image16.jpg' %}" alt="Dr. Varun Bansal">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Varun Bansal</div>
+          <div class="specialty">Dermatologist</div>
+          <p class="doctor-info">Laser skin treatment and acne management expert.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image17.jpg' %}" alt="Dr. Neha Kapoor">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Neha Kapoor</div>
+          <div class="specialty">Dermatologist</div>
+          <p class="doctor-info">Skin infections and allergy specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Neurology Department -->
+  <h4 class="mb-4 mt-5 text-primary">Neurology Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image4.jpg'%}" alt="Dr. Rajesh Kumar">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Rajesh Kumar</div>
+          <div class="specialty">Neurologist</div>
+          <p class="doctor-info">Specialist in brain stroke and seizure disorders.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image14.jpg' %}" alt="Dr. Leela Sharma">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Leela Sharma</div>
+          <div class="specialty">Neurologist</div>
+          <p class="doctor-info">Parkinson’s and Alzheimer’s care specialist.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image15.jpg' %}" alt="Dr. Naveen Bhat">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Naveen Bhat</div>
+          <div class="specialty">Neurologist</div>
+          <p class="doctor-info">Nerve disorders and neuro-rehabilitation expert.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. General Medicine Department -->
+  <h4 class="mb-4 mt-5 text-primary">General Medicine Department</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image18.jpg'%}" alt="Dr. Ayesha Khan">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Ayesha Khan</div>
+          <div class="specialty">General Physician</div>
+          <p class="doctor-info">Treats infections, fevers, and lifestyle diseases.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image19.jpg'%}" alt="Dr. Ravi Deshmukh">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Ravi Deshmukh</div>
+          <div class="specialty">General Physician</div>
+          <p class="doctor-info">Specialist in diabetes, hypertension, and thyroid care.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="doctor-card">
+        <img src="{% static 'images/image20.jpg'%}" alt="Dr. Sneha Iqbal">
+        <div class="doctor-card-body">
+          <div class="doctor-name">Dr. Sneha Iqbal</div>
+          <div class="specialty">General Physician</div>
+          <p class="doctor-info">Preventive medicine and health check-up expert.</p>
+          <a href="patient-registration.html" class="btn btn-book">Book Appointment</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
+  <!-- Full-width Fixed Footer -->
+    <!-- Footer -->
+  <footer class="text-center mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2025 DocNow. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 footer-link">
+          <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>  

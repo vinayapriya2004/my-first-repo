@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor Home - DocNow</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .navbar {
+      background-color: #003865;
+    }
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+      color: #fff;
+    }
+
+    .hero-section {
+      background-color: #e9f0f7;
+      min-height: calc(100vh - 56px - 80px); /* navbar + footer height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .dashboard-btn {
+      margin-top: 30px;
+    }
+
+    .btn-dashboard {
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-size: 16px;
+    }
+
+    .btn-dashboard:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #003865;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-stethoscope"></i> DocNow</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="doctor-dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="doctor-logout.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div>
+        <h1>Welcome Doctor</h1>
+        <p>You are successfully logged in. Use the dashboard to manage appointments, view patients, and update your profile.</p>
+        <div class="dashboard-btn">
+          <a href="doctor-dashboard.html" class="btn btn-dashboard">Go to Dashboard</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DocNow. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

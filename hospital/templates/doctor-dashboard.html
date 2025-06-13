@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #e1bee7);
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .dashboard-card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #ffffff;
+    }
+    .profile-icon-container {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #d1c4e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+      color: #6a1b9a;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto 15px auto;
+      border: 3px solid #9575cd;
+    }
+    #previewImg {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: none;
+      cursor: pointer;
+    }
+    #previewImg.show {
+      display: block;
+    }
+    #uploadImg {
+      display: none;
+    }
+    .tab-content {
+      margin-top: 20px;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .input-group .form-control {
+      border-radius: 0.5rem;
+    }
+    .btn-outline-danger, .btn-outline-primary, .btn-outline-success {
+      border-radius: 0.5rem;
+    }
+    .appointment-actions button {
+      margin-left: 8px;
+    }
+    .badge-status {
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.3em 0.6em;
+      border-radius: 0.4rem;
+      text-transform: capitalize;
+    }
+    .badge-pending {
+      background-color: #ffc107;
+      color: #212529;
+    }
+    .badge-confirmed {
+      background-color: #198754;
+      color: white;
+    }
+    .badge-canceled {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-4">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Doctor Profile Dashboard</h2>
+    <p class="text-muted">Manage your profile, experience, availability, and more</p>
+  </div>
+
+  <div class="card dashboard-card p-4">
+    <ul class="nav nav-tabs" id="dashboardTabs" role="tablist">
+      <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile" type="button"><i class="fa fa-user"></i> Profile</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#experience" type="button"><i class="fa fa-briefcase"></i> Experience</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#availability" type="button"><i class="fa fa-calendar-alt"></i> Availability</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#certificates" type="button"><i class="fa fa-certificate"></i> Certificates</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#appointments" type="button"><i class="fa fa-clock"></i> Appointments</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#settings" type="button"><i class="fa fa-cog"></i> Settings</button></li>
+    </ul>
+
+    <div class="tab-content">
+      <!-- Profile Tab -->
+      <div class="tab-pane fade show active" id="profile">
+        <div class="row mt-4 justify-content-center">
+          <div class="col-md-4 text-center">
+            <div class="profile-icon-container" id="profileIcon" title="Click to upload profile picture">
+              <i class="fa fa-user"></i>
+            </div>
+            <img id="previewImg" alt="Profile Preview" title="Click to change profile picture" />
+            <input type="file" id="uploadImg" accept="image/*" />
+          </div>
+          <div class="col-md-8">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" placeholder="Full Name" />
+              <label for="name">Full Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="Email" />
+              <label for="email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="bio" placeholder="Bio" style="height: 100px;"></textarea>
+              <label for="bio">Short Bio</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Tab -->
+      <div class="tab-pane fade" id="experience">
+        <div class="section-title mt-4">Work Experience</div>
+        <div id="experienceList"></div>
+        <button class="btn btn-outline-primary mt-3" onclick="addExperience()"><i class="fa fa-plus"></i> Add Experience</button>
+      </div>
+
+      <!-- Availability Tab -->
+      <div class="tab-pane fade" id="availability">
+        <div class="section-title mt-4">Availability Schedule</div>
+        <div id="availabilityList"></div>
+        <button class="btn btn-outline-success mt-3" onclick="addAvailability()"><i class="fa fa-plus"></i> Add Availability</button>
+      </div>
+
+      <!-- Certificates Tab -->
+      <div class="tab-pane fade" id="certificates">
+        <div class="section-title mt-4">Certificates</div>
+        <div id="certificateList"></div>
+        <button class="btn btn-outline-warning mt-3" onclick="addCertificate()"><i class="fa fa-plus"></i> Add Certificate</button>
+      </div>
+
+      <!-- Appointments Tab -->
+      <div class="tab-pane fade" id="appointments">
+        <div class="section-title mt-4">Upcoming Appointments</div>
+        <ul class="list-group" id="appointmentList"></ul>
+      </div>
+
+      <!-- Settings Tab -->
+      <div class="tab-pane fade" id="settings">
+        <div class="section-title mt-4">Account Settings</div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="currentPassword" placeholder="Current Password" />
+          <label for="currentPassword">Current Password</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="newPassword" placeholder="New Password" />
+          <label for="newPassword">New Password</label>
+        </div>
+        <button class="btn btn-primary">Update Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Profile Image Upload Handling
+  document.getElementById("profileIcon").addEventListener("click", () => {
+    document.getElementById("uploadImg").click();
+  });
+  document.getElementById("previewImg").addEventListener("click", () => {
+    document.getElementById("uploadImg").click();
+  });
+  document.getElementById("uploadImg").addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const previewImg = document.getElementById("previewImg");
+        previewImg.src = e.target.result;
+        previewImg.classList.add("show");
+        document.getElementById("profileIcon").style.display = "none";
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Add Experience Input
+  function addExperience() {
+    const div = document.createElement("div");
+    div.className = "input-group mb-2";
+    div.innerHTML = `
+      <input type="text" class="form-control" placeholder="E.g. 5 years in Pediatrics" />
+      <button class="btn btn-outline-danger" onclick="this.parentElement.remove()"><i class="fa fa-trash"></i></button>
+    `;
+    document.getElementById("experienceList").appendChild(div);
+  }
+
+  // Add Availability Input
+  function addAvailability() {
+    const div = document.createElement("div");
+    div.className = "input-group mb-2";
+    div.innerHTML = `
+      <input type="text" class="form-control" placeholder="E.g. Mon - Fri: 9AM - 5PM" />
+      <button class="btn btn-outline-danger" onclick="this.parentElement.remove()"><i class="fa fa-trash"></i></button>
+    `;
+    document.getElementById("availabilityList").appendChild(div);
+  }
+
+  // Add Certificate Input
+  function addCertificate() {
+    const div = document.createElement("div");
+    div.className = "input-group mb-2";
+    div.innerHTML = `
+      <input type="text" class="form-control" placeholder="E.g. MD in Cardiology" />
+      <button class="btn btn-outline-danger" onclick="this.parentElement.remove()"><i class="fa fa-trash"></i></button>
+    `;
+    document.getElementById("certificateList").appendChild(div);
+  }
+
+  // Appointments Data
+  let appointments = [
+    { id: 1, patient: "John Doe", datetime: "June 1, 10:00 AM", status: "pending" },
+    { id: 2, patient: "Jane Smith", datetime: "June 2, 2:30 PM", status: "confirmed" },
+    { id: 3, patient: "Mark Wilson", datetime: "June 3, 11:00 AM", status: "pending" },
+  ];
+
+  // Render Appointments with Confirm/Cancel Buttons for Pending
+  function renderAppointments() {
+    const list = document.getElementById("appointmentList");
+    list.innerHTML = "";
+    appointments.forEach(a => {
+      const li = document.createElement("li");
+      li.className = "list-group-item d-flex justify-content-between align-items-center";
+      let statusBadge = "";
+      if (a.status === "pending") {
+        statusBadge = `<span class="badge badge-status badge-pending">Pending</span>`;
+      } else if (a.status === "confirmed") {
+        statusBadge = `<span class="badge badge-status badge-confirmed">Confirmed</span>`;
+      } else if (a.status === "canceled") {
+        statusBadge = `<span class="badge badge-status badge-canceled">Canceled</span>`;
+      }
+      li.innerHTML = `
+        <div>
+          <strong>${a.patient}</strong> - <small>${a.datetime}</small> ${statusBadge}
+        </div>
+        <div class="appointment-actions">
+          ${a.status === "pending" ? `
+            <button class="btn btn-sm btn-success" onclick="confirmAppointment(${a.id})" title="Confirm"><i class="fa fa-check"></i></button>
+            <button class="btn btn-sm btn-danger" onclick="cancelAppointment(${a.id})" title="Cancel"><i class="fa fa-times"></i></button>
+          ` : `<button class="btn btn-sm btn-secondary" disabled>${a.status.charAt(0).toUpperCase() + a.status.slice(1)}</button>`}
+        </div>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  // Confirm Appointment: change status and rerender
+  function confirmAppointment(id) {
+    const appointment = appointments.find(a => a.id === id);
+    if (appointment && appointment.status === "pending") {
+      appointment.status = "confirmed";
+      alert(`Appointment with ${appointment.patient} confirmed!`);
+      renderAppointments();
+    }
+  }
+
+  // Cancel Appointment: change status and rerender
+  function cancelAppointment(id) {
+    const appointment = appointments.find(a => a.id === id);
+    if (appointment && appointment.status === "pending") {
+      appointment.status = "canceled";
+      alert(`Appointment with ${appointment.patient} canceled!`);
+      renderAppointments();
+    }
+  }
+
+  // Initial render
+  renderAppointments();
+</script>
+</body>
+</html>

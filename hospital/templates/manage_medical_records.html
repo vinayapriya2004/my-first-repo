@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Medical Records - Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .form-control, .btn {
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4 text-danger">Manage Medical Records</h2>
+
+  <!-- Add Medical Record Form -->
+  <div class="card p-4 mb-4 shadow-sm">
+    <h5 class="mb-3">Add New Record</h5>
+    <form id="recordForm">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Patient Name" id="recPatient" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Diagnosis" id="diagnosis" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Prescription" id="prescription" required>
+        </div>
+        <div class="col-md-12">
+          <textarea class="form-control" rows="2" placeholder="Treatment Notes" id="notes"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-danger mt-3">Add Record</button>
+    </form>
+  </div>
+
+  <!-- Medical Records Table -->
+  <div class="card p-4 shadow-sm">
+    <h5 class="mb-3">Medical Records List</h5>
+    <table class="table table-bordered" id="recordsTable">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Patient</th>
+          <th>Diagnosis</th>
+          <th>Prescription</th>
+          <th>Notes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Records will be added here dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Bootstrap & JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const recordForm = document.getElementById('recordForm');
+  const recordsTable = document.querySelector('#recordsTable tbody');
+  let recordCount = 0;
+
+  recordForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const patient = document.getElementById('recPatient').value;
+    const diagnosis = document.getElementById('diagnosis').value;
+    const prescription = document.getElementById('prescription').value;
+    const notes = document.getElementById('notes').value;
+
+    recordCount++;
+    const newRow = `
+      <tr>
+        <td>${recordCount}</td>
+        <td>${patient}</td>
+        <td>${diagnosis}</td>
+        <td>${prescription}</td>
+        <td>${notes}</td>
+        <td><button class="btn btn-sm btn-danger" onclick="removeRow(this)">Delete</button></td>
+      </tr>
+    `;
+    recordsTable.insertAdjacentHTML('beforeend', newRow);
+
+    recordForm.reset();
+  });
+
+  function removeRow(button) {
+    button.closest('tr').remove();
+  }
+</script>
+</body>
+</html>

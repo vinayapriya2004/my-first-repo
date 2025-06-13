@@ -1,0 +1,556 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocNow - Advanced Healthcare at Your Fingertips</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .top-bar {
+      background-color: #003865 ;
+      color: #fff;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: bold;
+      color: #003865 !important;
+    }
+
+    
+
+    .nav-link {
+      color: #003865  !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #00bbf0 !important;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #e6f3ff 0%, #ffffff 100%);
+      padding: 100px 0;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: #003865 ;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background-color: #00bbf0;
+      border-color: #00bbf0;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #003865 ;
+      border-color:#003865 ;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-primary {
+      color: #003865 ;
+      border-color: #003865 ;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #003865 ;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .animated-img {
+      transition: transform 0.5s ease-in-out;
+      max-height: 420px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .animated-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .section-icons {
+      background-color: #ffffff;
+      padding: 80px 0;
+    }
+
+    .section-icons .card {
+      border: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background-color: #ffffff;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .section-icons .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-icons .card i {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .about-header {
+      background: url('images/hospital-banner.jpg') center center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .about-header h1 {
+      font-weight: bold;
+      font-size: 48px;
+    }
+
+    .about-section {
+      padding: 60px 0;
+    }
+
+    .about-section h2 {
+      color: #003865;
+      font-weight: 600;
+    }
+    
+    .icon-box {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .icon-box i {
+      font-size: 40px;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .why-choose-us, .testimonials {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .why-choose-us h2, .testimonials h2 {
+      font-weight: 700;
+      margin-bottom: 50px;
+      color: #003865 ;
+      text-align: center;
+    }
+
+    .testimonial-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+     .contact-header {
+      background: linear-gradient(to right, #004080,#003865);
+      color: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .contact-header h1 {
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .contact-section {
+      padding: 60px 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-form .form-control {
+      border-radius: 8px;
+      box-shadow: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-form .form-control:focus {
+      border-color: #003865;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    }
+
+    .contact-info {
+      background: #ffffff;
+      border-left: 5px solid  #003865;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-info i {
+      font-size: 24px;
+      color:  #003865;
+      margin-right: 12px;
+    }
+
+    .map-container {
+      margin-top: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+
+    footer {
+      background-color:#003865 ;
+      color: white;
+      padding: 50px 0;
+    }
+
+    .footer-link a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link a:hover {
+      color: #00bbf0;
+    }
+    @media only screen and (max-width: 600px) {
+      .g-gourp{
+        gap: 20px;
+      }
+      }
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar text-center">
+    <div class="container d-flex justify-content-between">
+      <div><i class="fas fa-envelope"></i> info@docnow.com | <i class="fas fa-map-marker-alt"></i> C-708, Noida Sector 37</div>
+      <div><strong>Emergency:</strong> +91 2147483647</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-stethoscope"></i> DocNow</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="department.html">Department</a></li>
+        <li class="nav-item active"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="patient-reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+      
+        <li class="nav-item"><a class="nav-link" href="patient-registration.html">Patient Reg</a></li> -->
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h6 class="text-primary font-weight-bold mb-3">Welcome to DocNow</h6>
+          <h1 class="mb-4">Advanced Healthcare<br>at Your Fingertips</h1>
+          <p class="text-muted mb-5">
+            Experience world-class healthcare with DocNow. Book appointments, consult top doctors, and manage your health journey—all from the comfort of your home.
+          </p>
+          <a href="patient-registration.html" class="btn btn-primary btn-lg mr-3 mb-3">
+            <i class="fas fa-calendar-check mr-2"></i>Book Appointment
+          </a>
+          <a href="department.html" class="btn btn-outline-primary btn-lg mb-3">
+            <i class="fas fa-user-md mr-2"></i>Find Doctors
+          </a>
+        </div>
+        <div class="col-lg-6 text-center mt-5 mt-lg-0">
+          <img src="https://img.freepik.com/free-vector/hospital-building-concept-illustration_114360-8440.jpg?w=740&t=st=1683034549~exp=1683035149~hmac=40c4970e5d7a7c15a8945173230f4e82a3d2a6a992f3f6d9b5b51f4cb1c8e1d0" alt="DocNow Illustration" class="animated-img img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section-icons">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="card p-4">
+            <i class="fas fa-user-md text-primary"></i>
+            <h5 class="mt-4">Expert Doctors</h5>
+            <p>Access to highly qualified professionals across various specialties.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4">
+            <i class="fas fa-calendar-check text-success"></i>
+            <h5 class="mt-4">Easy Appointments</h5>
+            <p>Book online or offline appointments quickly and hassle-free.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4">
+            <i class="fas fa-hospital text-danger"></i>
+            <h5 class="mt-4">24/7 Emergency Care</h5>
+            <p>Round-the-clock emergency services for your peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2 class="text-center mb-5">Why Choose DocNow?</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 h-100">
+            <i class="fas fa-microscope fa-3x text-primary mb-3"></i>
+            <h5>Cutting-Edge Technology</h5>
+            <p>We utilize the latest medical equipment and diagnostic tools for accurate results.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 h-100">
+            <i class="fas fa-user-shield fa-3x text-success mb-3"></i>
+            <h5>Trusted by Thousands</h5>
+            <p>Join our community of satisfied patients who have experienced our quality care.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 h-100">
+            <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+            <h5>Patient-Centric Approach</h5>
+            <p>Your comfort, care, and confidentiality are at the heart of everything we do.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Hero Section -->
+<section class="about-header">
+  <div class="container">
+    <h1>About DocNow Hospital</h1>
+    <p>Your Health. Our Priority.</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <img src="{% static 'images/Doctor11.jpeg' %}" alt="About" class="img-fluid rounded shadow-sm"/>
+      </div>
+      <div class="col-md-6">
+        <h2>Who We Are</h2>
+        <p>DocNow Hospital is a modern, multi-specialty healthcare facility dedicated to delivering world-class treatment. Our mission is to bring quality healthcare to every individual with compassion, dedication, and commitment.</p>
+        <p>We offer a wide range of services including diagnostics, surgery, pediatrics, cardiology, and emergency care — all under one roof.</p>
+      </div>
+    </div>
+
+    <div class="row text-center g-gourp">
+      <div class="col-md-4">
+        <div class="icon-box">
+          <i class="fas fa-heartbeat"></i>
+          <h5>Mission</h5>
+          <p>To improve lives through personalized and accessible healthcare solutions.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-box">
+          <i class="fas fa-hands-helping"></i>
+          <h5>Values</h5>
+          <p>Integrity, Compassion, Innovation, and Excellence in service.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-box">
+          <i class="fas fa-users"></i>
+          <h5>Our Team</h5>
+          <p>Highly qualified doctors, nurses, and support staff working together 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Patients Say</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card text-center">
+            <img src="{% static 'images/patient1.jpeg' %}" alt="Anjali Verma" class="mb-3">
+            <p>"DocNow has revolutionized how I manage my health. Booking appointments is a breeze, and the doctors are top-notch!"</p>
+            <strong>- Anjali Verma</strong>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card text-center">
+            <img src="{% static 'images/patient2.jpeg' %}" alt="Rajesh Kumar" class="mb-3">
+            <p>"I'm impressed by the professionalism of the staff and the user-friendly platform. DocNow is my go-to for all health concerns."</p>
+            <strong>- Rajesh Kumar</strong>
+          </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+        <div class="testimonial-card text-center">
+          <img src="{% static 'images/patient4.jpg' %}" alt="Sneha Nair" class="mb-3" />
+          <p>"Excellent service and caring doctors! The online system saved me a lot of time."</p>
+          <strong>- Sneha Nair</strong>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="testimonial-card text-center">
+        <img src="{% static 'images/patient3.jpg' %}" alt="Arjun Menon" class="mb-3" />
+          <p>"DocNow's emergency care helped me during a critical time. Highly recommended!"</p>
+          <strong>- Arjun Menon</strong>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Header -->
+  <div class="contact-header">
+    <h1>Contact Us</h1>
+    <p>We’re here to help. Reach out with any questions or feedback.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-6 mb-4">
+          <form class="contact-form">
+            <h4 class="mb-4">Send Us a Message</h4>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Your Full Name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-4">
+          <div class="contact-info">
+            <h4>Get in Touch</h4>
+            <p><i class="fas fa-map-marker-alt"></i> C-708, Sector 37, Noida, India</p>
+            <p><i class="fas fa-phone-alt"></i> +91 9876543210</p>
+            <p><i class="fas fa-envelope"></i> contact@docnow.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 8:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-container mt-5">
+        <iframe src="https://maps.google.com/maps?q=noida%20sector%2037&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html">About Us</a></li>
+            <!-- <li><a href="services.html">Our Services</a></li> -->
+            <li><a href="department.html">Our Doctors</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Connect With Us</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin fa-2x"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt"></i> C-708, Noida Sector 37</p>
+          <p><i class="fas fa-phone"></i> +91 2147483647</p>
+          <p><i class="fas fa-envelope"></i></p>
+        </div>  
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

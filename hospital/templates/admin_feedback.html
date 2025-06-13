@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Feedback - Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f8fc;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .card {
+      border-radius: 12px;
+    }
+    .rating {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4 text-warning">Patient Feedback</h2>
+
+  <div class="card p-4 shadow-sm">
+    <h5 class="mb-3">Feedback from Patients</h5>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Patient Name</th>
+          <th>Doctor</th>
+          <th>Rating</th>
+          <th>Feedback</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="feedbackTable">
+        <tr>
+          <td>1</td>
+          <td>Sana M</td>
+          <td>Dr. Rohit Sharma</td>
+          <td class="rating">★★★★☆</td>
+          <td>Doctor was polite and explained everything well.</td>
+          <td>2025-05-20</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Vinod K</td>
+          <td>Dr. Priya Desai</td>
+          <td class="rating">★★★★★</td>
+          <td>Excellent service. Appointment started on time.</td>
+          <td>2025-05-21</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Divya R</td>
+          <td>Dr. Anand B</td>
+          <td class="rating">★★★☆☆</td>
+          <td>Good but waiting time was long.</td>
+          <td>2025-05-22</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
